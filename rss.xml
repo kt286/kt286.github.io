@@ -9,8 +9,58 @@
     <atom:link href="http://kt286.com/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 28 Jan 2022 08:58:38 GMT</pubDate>
+    <pubDate>Fri, 28 Jan 2022 13:00:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>使用 UserScript 给 438kan 添加网页全屏支持</title>
+      <link>http://kt286.com/post/438kan-webfullscreen/</link>
+      <guid>http://kt286.com/post/438kan-webfullscreen/</guid>
+      <pubDate>Fri, 28 Jan 2022 19:26:15 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近一直在 &lt;a href=&quot;http://438kan.com/&quot;&gt;438kan&lt;/a&gt; 上追剧，但是 438kan 自带的播放器嵌套在一</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一直在 <a href="http://438kan.com/">438kan</a> 上追剧，但是 438kan 自带的播放器嵌套在一个 <code>iframe</code> 中，不能使用网页全屏功能。而使用全屏播放视频时遇到要回复QQ、微信消息的情况则需要不断在全屏/非全屏之间切换，非常麻烦。所以决定研究研究，实现 438kan 的网页全屏功能。</p><h2 id="初次分析"><a href="#初次分析" class="headerlink" title="初次分析"></a>初次分析</h2><p>我们首先在浏览器中打开播放器地址 <a href="http://438kan.com/static/player/dplayer.html">http://438kan.com/static/player/dplayer.html</a>，右键-查看网页源代码，找到了其中的关键代码</p><figure class="highlight javascript"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> dplayer = <span class="hljs-keyword">new</span> DPlayer(&#123;<br><span class="hljs-attr">element</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;player&quot;</span>),<br><span class="hljs-attr">autoplay</span>: <span class="hljs-literal">true</span>,<br><span class="hljs-attr">video</span>: &#123;<br><span class="hljs-attr">url</span>: parent.MacPlayer.PlayUrl,<br><span class="hljs-attr">type</span>:<span class="hljs-string">&#x27;hls&#x27;</span>,<br>&#125;<br>&#125;);<br></code></pre></td></tr></table></figure><p>通过 <code>parent.MacPlayer.PlayUrl</code> 这句我们可以发现，视频播放地址是在 <code>iframe</code> 外加载的，根本没必要使用 <code>iframe</code> ，可以把 <code>iframe</code> 整个替换掉。这里我们直接用这个 <code>iframe</code> 的父级div <code>MacPlayer</code> 作为播放器的容器，通过 <code>UserScript</code> 中的 <code>@require</code> 加载 <code>dplayer</code> 及其依赖 <code>hls</code>，直接加载 <code>MacPlayer.PlayUrl</code> 这个地址的视频</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// ==UserScript==</span><br><span class="hljs-comment">// @name             438kan网页全屏</span><br><span class="hljs-comment">// @description      438kan网页全屏</span><br><span class="hljs-comment">// @version          1.0</span><br><span class="hljs-comment">// @author           kt286</span><br><span class="hljs-comment">// @include          *://*.438kan.com/*</span><br><span class="hljs-comment">// @include          *://438kan.com/*</span><br><span class="hljs-comment">// @require          https://cdn.jsdelivr.net/npm/hls.js@1.1.3/dist/hls.min.js</span><br><span class="hljs-comment">// @require          https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js</span><br><span class="hljs-comment">// @grant            none</span><br><span class="hljs-comment">// @run-at           document-end</span><br><span class="hljs-comment">// ==/UserScript==</span><br><span class="hljs-keyword">var</span> dplayer = <span class="hljs-keyword">new</span> DPlayer(&#123;<br>    <span class="hljs-attr">element</span>: <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;.MacPlayer&quot;</span>),<br>    <span class="hljs-attr">autoplay</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">video</span>: &#123;<br>        <span class="hljs-attr">url</span>: MacPlayer.PlayUrl<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure><p>这里需要注意一个问题，<code>iframe</code> 中播放器地址是被 <a href="http://438kan.com/static/player/dplayer.js">http://438kan.com/static/player/dplayer.js</a> 这个 js 加载的，为了防止不必要的资源加载，我们使用 <code>uBlock Origin</code> 或 <code>Adblock Plus</code> 将其拦截。</p><h2 id="第二次分析"><a href="#第二次分析" class="headerlink" title="第二次分析"></a>第二次分析</h2><p>脚本写完后，复制到 <a href="https://violentmonkey.github.io/">Violentmonkey</a> 中，刷新网页。音乐声响起，但是视频没有出现。通过 F12 我们可以发现视频已经加载出来了，但是高度异常</p><p><img src="/img/posts/438kan-webfullscreen/1.png" alt="视频高度异常"></p><p>继续分析我们发现 <code>MacPlayer</code> 这个元素的 <code>padding-bottom</code> 居然有 <code>500</code> 多，把视频高度都给挤没了。</p><p><img src="/img/posts/438kan-webfullscreen/2.png" alt="播放器 padding-bottom"></p><p>既然知道问题出在哪里了，解决方案也就有了，那就是设置 <code>padding-bottom</code> 为 <code>0px</code>。现在我们就有两种实现方案：<code>UserCSS</code> 和 <code>UserScript</code>。这里我们继续使用 <code>UserScript</code>。<code>UserScript</code>中添加自定义样式的方法是 <code>GM_addStyle</code>。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// ==UserScript==</span><br><span class="hljs-comment">// @name             438kan网页全屏</span><br><span class="hljs-comment">// @description      438kan网页全屏</span><br><span class="hljs-comment">// @version          1.0</span><br><span class="hljs-comment">// @author           kt286</span><br><span class="hljs-comment">// @include          *://*.438kan.com/*</span><br><span class="hljs-comment">// @include          *://438kan.com/*</span><br><span class="hljs-comment">// @require          https://cdn.jsdelivr.net/npm/hls.js@1.1.3/dist/hls.min.js</span><br><span class="hljs-comment">// @require          https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js</span><br><span class="hljs-comment">// @grant            GM_addStyle</span><br><span class="hljs-comment">// @run-at           document-end</span><br><span class="hljs-comment">// ==/UserScript==</span><br>GM_addStyle(<span class="hljs-string">&quot;.MacPlayer &#123; padding:0!important; &#125;&quot;</span>);<br><span class="hljs-keyword">var</span> dplayer = <span class="hljs-keyword">new</span> DPlayer(&#123;<br>    <span class="hljs-attr">element</span>: <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;.MacPlayer&quot;</span>),<br>    <span class="hljs-attr">autoplay</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">video</span>: &#123;<br>        <span class="hljs-attr">url</span>: MacPlayer.PlayUrl<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure><h2 id="第三次分析"><a href="#第三次分析" class="headerlink" title="第三次分析"></a>第三次分析</h2><p>增加自定义样式后，视频出来了，网页全屏功能也正常了。但还有一点点小瑕疵，就是导航栏悬浮在播放器上方，遮挡了一部分视频。这个就简单了，只要把播放器 <code>z-index</code> 值设置的大于导航栏的值就可以了，完整代码如下：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// ==UserScript==</span><br><span class="hljs-comment">// @name             438kan网页全屏</span><br><span class="hljs-comment">// @description      438kan网页全屏</span><br><span class="hljs-comment">// @version          1.0</span><br><span class="hljs-comment">// @author           kt286</span><br><span class="hljs-comment">// @include          *://*.438kan.com/*</span><br><span class="hljs-comment">// @include          *://438kan.com/*</span><br><span class="hljs-comment">// @require          https://cdn.jsdelivr.net/npm/hls.js@1.1.3/dist/hls.min.js</span><br><span class="hljs-comment">// @require          https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js</span><br><span class="hljs-comment">// @grant            GM_addStyle</span><br><span class="hljs-comment">// @run-at           document-end</span><br><span class="hljs-comment">// ==/UserScript==</span><br>GM_addStyle(<span class="hljs-string">&quot;.MacPlayer &#123; padding:0!important; z-index:999!important; &#125;&quot;</span>);<br><span class="hljs-keyword">var</span> dplayer = <span class="hljs-keyword">new</span> DPlayer(&#123;<br>    <span class="hljs-attr">element</span>: <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;.MacPlayer&quot;</span>),<br>    <span class="hljs-attr">autoplay</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">video</span>: &#123;<br>        <span class="hljs-attr">url</span>: MacPlayer.PlayUrl<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure><p>刷新视频，网页全屏一切正常。这下舒服了。</p>]]></content:encoded>
+      
+      
+      <category domain="http://kt286.com/categories/UserScript/">UserScript</category>
+      
+      
+      <category domain="http://kt286.com/tags/dplayer/">dplayer</category>
+      
+      <category domain="http://kt286.com/tags/userscript/">userscript</category>
+      
+      
+      <comments>http://kt286.com/post/438kan-webfullscreen/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://kt286.com/post/hello-world/</link>
+      <guid>http://kt286.com/post/hello-world/</guid>
+      <pubDate>Fri, 28 Jan 2022 13:00:42 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content:encoded>
+      
+      
+      
+      
+      <comments>http://kt286.com/post/hello-world/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>我的 deepin 初始化脚本</title>
@@ -36,28 +86,6 @@
       
       
       <comments>http://kt286.com/post/deepin-init/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>http://kt286.com/post/hello-world/</link>
-      <guid>http://kt286.com/post/hello-world/</guid>
-      <pubDate>Fri, 28 Jan 2022 08:58:38 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content:encoded>
-      
-      
-      
-      
-      <comments>http://kt286.com/post/hello-world/#disqus_thread</comments>
       
     </item>
     
