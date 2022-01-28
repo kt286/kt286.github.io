@@ -1,0 +1,42 @@
+name: deploy
+
+on:
+  push:
+    branches: [source]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+      with:
+        ref: source
+
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: "14.x"
+
+    - name: Hexo Generate
+      run: |
+        rm -f .yarnclean
+        yarn --frozen-lockfile --ignore-engines --ignore-optional --non-interactive --silent --ignore-scripts --production=false
+        rm -rf ./public
+        yarn run hexo clean
+        yarn run hexo generate
+
+    - name: Hexo Deploy
+      env:
+        SSH_PRIVATE: ${{ secrets.SSH_PRIVATE }}
+        GIT_NAME: Cloud
+        GIT_EMAIL: kt286@qq.com
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$SSH_PRIVATE" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git config --global user.name "$GIT_NAME"
+        git config --global user.email "$GIT_EMAIL"
+        yarn run hexo deploy
