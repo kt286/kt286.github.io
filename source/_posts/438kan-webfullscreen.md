@@ -1,12 +1,13 @@
 ---
 title: 使用 UserScript 给 438kan 添加网页全屏支持
 date: 2022-01-28 19:26:15
+updated: 2022-01-28 19:26:15
 categories: UserScript
-tags: [dplayer,userscript]
+tags: [userscript,dplayer]
 ---
 
 ## 前言
-最近一直在 [438kan](http://438kan.com) 上追剧，但是 438kan 自带的播放器嵌套在一个 `iframe` 中，不能使用网页全屏功能。而使用全屏播放视频时遇到要回复QQ、微信消息的情况则需要不断在全屏/非全屏之间切换，非常麻烦。所以决定研究研究，实现 438kan 的网页全屏功能。
+最近一直在 [438kan](http://438kan.com) 上追剧，但是 438kan 自带的播放器嵌套在一个 iframe 中，不能使用网页全屏功能。而使用全屏播放视频时遇到要回复QQ、微信消息的情况则需要不断在全屏/非全屏之间切换，非常麻烦。所以决定研究研究，实现 438kan 的网页全屏功能。
 
 ## 初次分析
 我们首先在浏览器中打开播放器地址 [http://438kan.com/static/player/dplayer.html](http://438kan.com/static/player/dplayer.html)，右键-查看网页源代码，找到了其中的关键代码
@@ -21,7 +22,7 @@ var dplayer = new DPlayer({
 	}
 });
 ```
-通过 `parent.MacPlayer.PlayUrl` 这句我们可以发现，视频播放地址是在 `iframe` 外加载的，根本没必要使用 `iframe` ，可以把 `iframe` 整个替换掉。这里我们直接用这个 `iframe` 的父级div `MacPlayer` 作为播放器的容器，通过 `UserScript` 中的 `@require` 加载 `dplayer` 及其依赖 `hls`，直接加载 `MacPlayer.PlayUrl` 这个地址的视频
+通过 `parent.MacPlayer.PlayUrl` 这句我们可以发现，视频播放地址是在 iframe 外加载的，根本没必要使用 iframe ，可以把 iframe 整个替换掉。这里我们直接用这个 iframe 的父级div `MacPlayer` 作为播放器的容器，通过 `UserScript` 中的 `@require` 加载 `dplayer` 及其依赖 `hls`，直接加载 `MacPlayer.PlayUrl` 这个地址的视频
 
 ```javascript
 // ==UserScript==
@@ -44,7 +45,7 @@ var dplayer = new DPlayer({
     }
 });
 ```
-这里需要注意一个问题，`iframe` 中播放器地址是被 [http://438kan.com/static/player/dplayer.js](http://438kan.com/static/player/dplayer.js) 这个 js 加载的，为了防止不必要的资源加载，我们使用 `uBlock Origin` 或 `Adblock Plus` 将其拦截。
+这里需要注意一个问题，iframe 中播放器地址是被 [http://438kan.com/static/player/dplayer.js](http://438kan.com/static/player/dplayer.js) 这个 js 加载的，为了防止不必要的资源加载，我们使用 `uBlock Origin` 或 `Adblock Plus` 将其拦截。
 
 ## 第二次分析
 脚本写完后，复制到 [Violentmonkey](https://violentmonkey.github.io/) 中，刷新网页。音乐声响起，但是视频没有出现。通过 F12 我们可以发现视频已经加载出来了，但是高度异常
