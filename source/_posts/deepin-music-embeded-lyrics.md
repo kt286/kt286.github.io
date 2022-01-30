@@ -1,7 +1,7 @@
 ---
 title: 为深度音乐添加内嵌歌词支持
 date: 2022-01-30 09:09:09
-updated: 2022-01-30 09:09:09
+updated: 2022-01-30 12:27:09
 categories: Deepin
 tags: [deepin,music,c++]
 ---
@@ -9,17 +9,18 @@ tags: [deepin,music,c++]
 ## 前言
 一个风和日丽的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。
 
-将下载好的音乐导入后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘
+将下载好的音乐导入深度音乐后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘
 ![没有找到歌词](/img/posts/deepin-music-embeded-lyrics/1.png)
 
-不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 `ffprobe` 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。作为一个急性子，与其慢慢等官方实现，不如自己动手、丰衣足食。
+不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 `ffprobe` 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。与其慢慢等官方实现，不如自己动手、丰衣足食。
 ![ffprobe 结果](/img/posts/deepin-music-embeded-lyrics/2.png)
 
 ## 思路
-既然知道歌词已经写到歌曲中了。就先看看写到了歌词的那个位置，打开 Github 中 [洛雪音乐助手](https://github.com/lyswhut/lx-music-desktop) 的源码，全局搜索 `lyric`，找到如下代码：
+既然知道歌词已经写到歌曲中了。就先看看写到了歌曲的什么位置，打开 [洛雪音乐助手](https://github.com/lyswhut/lx-music-desktop) 的源码，全局搜索 `lyrics`，找到如下代码：
 
 ```javascript
 // src/main/utils/mp3Meta.js
+
 const handleWriteMeta = (meta, filePath) => {
   if (meta.lyrics) {
     meta.unsynchronisedLyrics = {
@@ -31,10 +32,10 @@ const handleWriteMeta = (meta, filePath) => {
   NodeID3.write(meta, filePath)
 }
 ```
-根据代码我们可以知道歌词是在 ID3 标签中的 `unsynchronisedLyrics` 中。Google 了一下，发现这个是 ID3v2 标准专门用来存储文本歌词的[^1]，而洛雪音乐助手存储的是 lrc 格式的歌词，所以哦我们只需要读取这个属性中内容，直接提供给深度音乐就可以了。
+根据代码我们可以知道歌词被写入到 ID3 标签中的 `unsynchronisedLyrics` 中。Google 了一下，发现这个是 ID3v2 标准专门用来存储文本歌词[^1]的，而洛雪音乐助手写入的是 lrc 格式的歌词，所以我们只需要读取这个属性中内容，直接提供给深度音乐显示就可以了。
 
 ## 开发
-这里我们可以参考深度音乐对歌曲封面图的处理方法：添加歌曲后开始读取歌词，读取到歌词后，写入缓存文件夹中的 lyrics 文件夹。播放时先使用原来的逻辑获取歌曲同目录下同名歌词文件，如果没找到就去缓存里查找 lyrics 中文件，如果还没找到才显示“没有找到歌词”。
+歌词的提取我们可以参考深度音乐对歌曲封面图的处理方法：添加歌曲后开始读取歌词，读取到歌词后，写入缓存文件夹里的 lyrics 文件夹。播放时先使用原来的逻辑获取歌曲同目录下同名歌词文件，如果没找到就去缓存文件夹里 lyrics 文件夹中查找歌词文件，如果还没找到再显示“没有找到歌词”。
 
 核心代码如下，代码参考了 Stack Overflow 的一个回答[^2] 和 TagLib 文档[^3]
 ```cpp
