@@ -19,13 +19,13 @@
     <meta name="description" content="前言一个风和日丽的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。 将下载好的音乐导入深度音乐后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘 不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 ffprobe 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。与其慢慢等官方实现，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为深度音乐添加内嵌歌词支持">
-<meta property="og:url" content="http://kt286.com/post/deepin-music-embeded-lyrics/index.html">
+<meta property="og:url" content="https://blog.kt286.com/post/deepin-music-embeded-lyrics/index.html">
 <meta property="og:site_name" content="kt286">
 <meta property="og:description" content="前言一个风和日丽的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。 将下载好的音乐导入深度音乐后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘 不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 ffprobe 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。与其慢慢等官方实现，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://kt286.com/img/posts/deepin-music-embeded-lyrics/1.png">
-<meta property="og:image" content="http://kt286.com/img/posts/deepin-music-embeded-lyrics/2.png">
-<meta property="og:image" content="http://kt286.com/img/posts/deepin-music-embeded-lyrics/3.png">
+<meta property="og:image" content="https://blog.kt286.com/img/posts/deepin-music-embeded-lyrics/1.png">
+<meta property="og:image" content="https://blog.kt286.com/img/posts/deepin-music-embeded-lyrics/2.png">
+<meta property="og:image" content="https://blog.kt286.com/img/posts/deepin-music-embeded-lyrics/3.png">
 <meta property="article:published_time" content="2022-01-30T09:09:09.000Z">
 <meta property="article:modified_time" content="2022-01-30T12:27:09.000Z">
 <meta property="article:author" content="kt286">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="music">
 <meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://kt286.com/img/posts/deepin-music-embeded-lyrics/1.png">
+<meta name="twitter:image" content="https://blog.kt286.com/img/posts/deepin-music-embeded-lyrics/1.png">
   
   
   <title>为深度音乐添加内嵌歌词支持 - kt286</title>
@@ -73,7 +73,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"kt286.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.kt286.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>

@@ -3,11 +3,11 @@
   <title>kt286</title>
   
   
-  <link href="http://kt286.com/atom.xml" rel="self"/>
+  <link href="https://blog.kt286.com/atom.xml" rel="self"/>
   
-  <link href="http://kt286.com/"/>
+  <link href="https://blog.kt286.com/"/>
   <updated>2022-01-30T12:27:09.000Z</updated>
-  <id>http://kt286.com/</id>
+  <id>https://blog.kt286.com/</id>
   
   <author>
     <name>kt286</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>为深度音乐添加内嵌歌词支持</title>
-    <link href="http://kt286.com/post/deepin-music-embeded-lyrics/"/>
-    <id>http://kt286.com/post/deepin-music-embeded-lyrics/</id>
+    <link href="https://blog.kt286.com/post/deepin-music-embeded-lyrics/"/>
+    <id>https://blog.kt286.com/post/deepin-music-embeded-lyrics/</id>
     <published>2022-01-30T09:09:09.000Z</published>
     <updated>2022-01-30T12:27:09.000Z</updated>
     
@@ -33,21 +33,21 @@
     
     
     
-    <category term="Deepin" scheme="http://kt286.com/categories/Deepin/"/>
+    <category term="Deepin" scheme="https://blog.kt286.com/categories/Deepin/"/>
     
     
-    <category term="deepin" scheme="http://kt286.com/tags/deepin/"/>
+    <category term="deepin" scheme="https://blog.kt286.com/tags/deepin/"/>
     
-    <category term="music" scheme="http://kt286.com/tags/music/"/>
+    <category term="music" scheme="https://blog.kt286.com/tags/music/"/>
     
-    <category term="c++" scheme="http://kt286.com/tags/c/"/>
+    <category term="c++" scheme="https://blog.kt286.com/tags/c/"/>
     
   </entry>
   
   <entry>
     <title>使用 UserScript 给 438kan 添加网页全屏支持</title>
-    <link href="http://kt286.com/post/438kan-webfullscreen/"/>
-    <id>http://kt286.com/post/438kan-webfullscreen/</id>
+    <link href="https://blog.kt286.com/post/438kan-webfullscreen/"/>
+    <id>https://blog.kt286.com/post/438kan-webfullscreen/</id>
     <published>2022-01-28T19:26:15.000Z</published>
     <updated>2022-01-28T19:26:15.000Z</updated>
     
@@ -61,19 +61,19 @@
     
     
     
-    <category term="UserScript" scheme="http://kt286.com/categories/UserScript/"/>
+    <category term="UserScript" scheme="https://blog.kt286.com/categories/UserScript/"/>
     
     
-    <category term="userscript" scheme="http://kt286.com/tags/userscript/"/>
+    <category term="userscript" scheme="https://blog.kt286.com/tags/userscript/"/>
     
-    <category term="dplayer" scheme="http://kt286.com/tags/dplayer/"/>
+    <category term="dplayer" scheme="https://blog.kt286.com/tags/dplayer/"/>
     
   </entry>
   
   <entry>
     <title>我的 deepin 初始化脚本</title>
-    <link href="http://kt286.com/post/deepin-init/"/>
-    <id>http://kt286.com/post/deepin-init/</id>
+    <link href="https://blog.kt286.com/post/deepin-init/"/>
+    <id>https://blog.kt286.com/post/deepin-init/</id>
     <published>2022-01-28T11:21:45.000Z</published>
     <updated>2022-01-28T11:21:45.000Z</updated>
     
@@ -88,10 +88,10 @@
     
     
     
-    <category term="Deepin" scheme="http://kt286.com/categories/Deepin/"/>
+    <category term="Deepin" scheme="https://blog.kt286.com/categories/Deepin/"/>
     
     
-    <category term="deepin" scheme="http://kt286.com/tags/deepin/"/>
+    <category term="deepin" scheme="https://blog.kt286.com/tags/deepin/"/>
     
   </entry>
   
