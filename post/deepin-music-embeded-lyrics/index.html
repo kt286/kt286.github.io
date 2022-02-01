@@ -16,12 +16,12 @@
   <meta name="author" content="kt286">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言一个风和日丽的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。 将下载好的音乐导入深度音乐后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘 不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 ffprobe 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。与其慢慢等官方实现，">
+    <meta name="description" content="前言一个月黑风高的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。 将下载好的音乐导入深度音乐后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘 不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 ffprobe 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。与其慢慢等官方实现，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为深度音乐添加内嵌歌词支持">
 <meta property="og:url" content="https://blog.kt286.com/post/deepin-music-embeded-lyrics/index.html">
 <meta property="og:site_name" content="kt286">
-<meta property="og:description" content="前言一个风和日丽的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。 将下载好的音乐导入深度音乐后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘 不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 ffprobe 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。与其慢慢等官方实现，">
+<meta property="og:description" content="前言一个月黑风高的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。 将下载好的音乐导入深度音乐后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘 不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 ffprobe 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。与其慢慢等官方实现，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.kt286.com/img/posts/deepin-music-embeded-lyrics/1.png">
 <meta property="og:image" content="https://blog.kt286.com/img/posts/deepin-music-embeded-lyrics/2.png">
@@ -274,7 +274,7 @@
               </p>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个风和日丽的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。</p>
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个月黑风高的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。</p>
 <p>将下载好的音乐导入深度音乐后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘<br><img src="/img/posts/deepin-music-embeded-lyrics/1.png" srcset="/img/loading.gif" lazyload alt="没有找到歌词"></p>
 <p>不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 <code>ffprobe</code> 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。与其慢慢等官方实现，不如自己动手、丰衣足食。<br><img src="/img/posts/deepin-music-embeded-lyrics/2.png" srcset="/img/loading.gif" lazyload alt="ffprobe 结果"></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>既然知道歌词已经写到歌曲中了。就先看看写到了歌曲的什么位置，打开 <a target="_blank" rel="noopener" href="https://github.com/lyswhut/lx-music-desktop">洛雪音乐助手</a> 的源码，全局搜索 <code>lyrics</code>，找到如下代码：</p>
