@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>大幅降低 Wine 微信内存占用</title>
+    <link href="/post/reduce-wine-wechat-memory-usage/"/>
+    <url>/post/reduce-wine-wechat-memory-usage/</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每次打开 Wine 版微信，内存使用率就会涨上一大截。平时没怎么在意，今天随意看了一眼就惊呆了：微信刚打开就已经占用了 1G 左右，而且随着使用时间推移甚至能涨到 2G 。不能忍，今天一定要好好治一治这个内存大户。<br><img src="/img/posts/reduce-wine-wechat-memory-usage/1.png" alt="Wine 微信内存占用"></p><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>系统监视器里搜索 <code>wechat</code> ，发现了华点：微信本体只占用了不到 100M 内存，剩下的都被 <code>WeChatWebBrower.exe</code> 和 <code>WeChatApp.exe</code> 这两个进程占走了。纳尼？？我用的可是微信，不是微信浏览器。精简掉这两个进程应该就可以减少内存占用了。</p><h2 id="精简"><a href="#精简" class="headerlink" title="精简"></a>精简</h2><p>右键属性里找到这两个进程所在的目录，发现两个都在一起，刚好可以一网打尽。</p><figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">rm</span> -rf ~/.deepinwine/Deepin-WeChat/drive_c/users/$(<span class="hljs-built_in">whoami</span>)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb/<br><span class="hljs-built_in">touch</span> ~/.deepinwine/Deepin-WeChat/drive_c/users/$(<span class="hljs-built_in">whoami</span>)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb<br><span class="hljs-built_in">chmod</span> 000 ~/.deepinwine/Deepin-WeChat/drive_c/users/$(<span class="hljs-built_in">whoami</span>)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb <br></code></pre></td></tr></table></figure><p>精简掉这两个进程后再次打开微信，只占用 200M 左右内存，舒服了。<br><img src="/img/posts/reduce-wine-wechat-memory-usage/2.png" alt="精简后的微信内存占用"></p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>当然了，精简之后肯定会有一些功能异常，目前发现的只有收到的链接、公众号文章无法打开，小程序无法使用。反正我也不在电脑上使用小程序，可以忍。至于公众号文章查看，可以通过一些设置来继续使用，只是有些繁琐。<br><img src="/img/posts/reduce-wine-wechat-memory-usage/3.png" alt="关闭`使用系统默认浏览器打开网页`"><br><img src="/img/posts/reduce-wine-wechat-memory-usage/4.png" alt="用默认浏览器打开"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Wine</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Wine</tag>
+      
+      <tag>微信</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>使用 FFmpeg 下载伪装成图片的 m3u8 视频</title>
     <link href="/post/ffmpeg-download-video-faked-as-image/"/>
     <url>/post/ffmpeg-download-video-faked-as-image/</url>

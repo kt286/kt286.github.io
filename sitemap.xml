@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.kt286.com/post/reduce-wine-wechat-memory-usage/</loc>
+    
+    <lastmod>2022-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.kt286.com/about/index.html</loc>
     
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -49,7 +58,7 @@
 
   <url>
     <loc>https://blog.kt286.com/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -57,49 +66,63 @@
   
   <url>
     <loc>https://blog.kt286.com/tags/userscript/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kt286.com/tags/dplayer/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kt286.com/tags/deepin/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kt286.com/tags/music/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kt286.com/tags/c/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kt286.com/tags/ffmpeg/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kt286.com/tags/m3u8/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kt286.com/tags/Wine/</loc>
+    <lastmod>2022-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kt286.com/tags/%E5%BE%AE%E4%BF%A1/</loc>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -108,21 +131,28 @@
   
   <url>
     <loc>https://blog.kt286.com/categories/UserScript/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kt286.com/categories/Deepin/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kt286.com/categories/FFmpeg/</loc>
-    <lastmod>2022-02-17</lastmod>
+    <lastmod>2022-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kt286.com/categories/Wine/</loc>
+    <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
