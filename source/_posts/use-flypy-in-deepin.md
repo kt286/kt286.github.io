@@ -56,7 +56,7 @@ sudo apt-get install -y build-essential cmake-extras extra-cmake-modules
 # 编译 fcitx5-lua (orq 输入当前日期功能使用 lua 实现，如不需要，可以跳过此步)
 sudo apt-get install -y gettext appstream libfcitx5core-dev fcitx5-modules-dev liblua5.3-dev 
 mkdir -p ~/workspace/fcitx5-lua
-git clone https://github.com/kt286/fcitx5-lua.git ~/workspace/fcitx5-lua
+git clone https://github.com/fcitx/fcitx5-lua.git ~/workspace/fcitx5-lua
 mkdir -p ~/workspace/fcitx5-lua/build
 cd ~/workspace/fcitx5-lua/build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr
