@@ -16,31 +16,30 @@
   <meta name="author" content="kt286">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言之前一直在使用全拼输入法，但是全拼有一个众所周知的问题：重码率高。虽然这类输入法大都有词频动态调整、云输入等功能。但是每个用户习惯不同，换台设备后打字效率就会降低。而五笔输入法需要记忆大量字根，上手难度大。所以在网上看到小鹤音形的时候眼前一亮，决定尝试一下。 介绍小鹤音形分双拼和双形两部分，简单理解就是先告诉输入法这个字怎么读，再告诉输入法怎么写。通过两个维度确定一个字，极大减少了重码问题。详">
+    <meta name="description" content="前言使用深度文件管理器的时候，遇到一些小问题。翻了翻代码，发现修改起来不是很复杂，就顺手改了。下面记录一下修改内容。本次修改基于最新内测版5.6.3。 环境准备123apt source dde-file-managercd dde-file-manager-5.6.3sudo apt build-dep .  修改内容环境配置好后就可以修改了，本次修改的内容如下： 1.列表模式显示太密集这个问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在 deepin 中使用小鹤音形">
-<meta property="og:url" content="https://blog.kt286.com/post/use-flypy-in-deepin/index.html">
+<meta property="og:title" content="深度文件管理器改造小记">
+<meta property="og:url" content="https://blog.kt286.com/post/dde-file-manager-beautify/index.html">
 <meta property="og:site_name" content="kt286">
-<meta property="og:description" content="前言之前一直在使用全拼输入法，但是全拼有一个众所周知的问题：重码率高。虽然这类输入法大都有词频动态调整、云输入等功能。但是每个用户习惯不同，换台设备后打字效率就会降低。而五笔输入法需要记忆大量字根，上手难度大。所以在网上看到小鹤音形的时候眼前一亮，决定尝试一下。 介绍小鹤音形分双拼和双形两部分，简单理解就是先告诉输入法这个字怎么读，再告诉输入法怎么写。通过两个维度确定一个字，极大减少了重码问题。详">
+<meta property="og:description" content="前言使用深度文件管理器的时候，遇到一些小问题。翻了翻代码，发现修改起来不是很复杂，就顺手改了。下面记录一下修改内容。本次修改基于最新内测版5.6.3。 环境准备123apt source dde-file-managercd dde-file-manager-5.6.3sudo apt build-dep .  修改内容环境配置好后就可以修改了，本次修改的内容如下： 1.列表模式显示太密集这个问题">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.kt286.com/img/posts/use-flypy-in-deepin/hejp.png">
-<meta property="og:image" content="https://blog.kt286.com/img/posts/use-flypy-in-deepin/xhup.png">
-<meta property="og:image" content="https://blog.kt286.com/img/posts/use-flypy-in-deepin/fcitx5-rime.png">
-<meta property="og:image" content="https://blog.kt286.com/img/posts/use-flypy-in-deepin/mabn.png">
-<meta property="article:published_time" content="2022-03-14T20:56:25.000Z">
-<meta property="article:modified_time" content="2022-04-17T19:03:46.000Z">
+<meta property="og:image" content="https://blog.kt286.com/img/posts/dde-file-manager-beautify/1.png">
+<meta property="og:image" content="https://blog.kt286.com/img/posts/dde-file-manager-beautify/2.png">
+<meta property="og:image" content="https://blog.kt286.com/img/posts/dde-file-manager-beautify/3.png">
+<meta property="og:image" content="https://blog.kt286.com/img/posts/dde-file-manager-beautify/4.png">
+<meta property="og:image" content="https://blog.kt286.com/img/posts/dde-file-manager-beautify/5.png">
+<meta property="article:published_time" content="2022-05-19T16:22:24.000Z">
+<meta property="article:modified_time" content="2022-05-19T16:22:24.000Z">
 <meta property="article:author" content="kt286">
 <meta property="article:tag" content="deepin">
-<meta property="article:tag" content="flypy">
-<meta property="article:tag" content="rime">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.kt286.com/img/posts/use-flypy-in-deepin/hejp.png">
+<meta name="twitter:image" content="https://blog.kt286.com/img/posts/dde-file-manager-beautify/1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>在 deepin 中使用小鹤音形 - kt286</title>
+  <title>深度文件管理器改造小记 - kt286</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">在 deepin 中使用小鹤音形</span>
+            <span id="subtitle">深度文件管理器改造小记</span>
           
         </div>
 
@@ -228,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-14 20:56" pubdate>
-          2022-03-14 08:56:25
+        <time datetime="2022-05-19 16:22" pubdate>
+          2022-05-19 04:22:24
         </time>
       </span>
     
@@ -240,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          2.4k 字
         
       </span>
     
@@ -297,44 +296,39 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">在 deepin 中使用小鹤音形</h1>
+            <h1 style="display: none">深度文件管理器改造小记</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022-04-17 07:03:46
+                    本文最后更新于：2022-05-19 04:22:24
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前一直在使用全拼输入法，但是全拼有一个众所周知的问题：重码率高。虽然这类输入法大都有词频动态调整、云输入等功能。但是每个用户习惯不同，换台设备后打字效率就会降低。而五笔输入法需要记忆大量字根，上手难度大。所以在网上看到小鹤音形的时候眼前一亮，决定尝试一下。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>小鹤音形分双拼和双形两部分，简单理解就是先告诉输入法这个字怎么读，再告诉输入法怎么写。通过两个维度确定一个字，极大减少了重码问题。详细介绍见小鹤音形官网<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="小鹤入门
-">[1]</span></a></sup>。下边放一下双拼键位图和鹤形字根图备忘。</p>
-<h3 id="双拼"><a href="#双拼" class="headerlink" title="双拼"></a>双拼</h3><p><img src="/img/posts/use-flypy-in-deepin/hejp.png" srcset="/img/loading.gif" lazyload alt="小鹤双拼键位图"></p>
-<h3 id="双形"><a href="#双形" class="headerlink" title="双形"></a>双形</h3><p><img src="/img/posts/use-flypy-in-deepin/xhup.png" srcset="/img/loading.gif" lazyload alt="小鹤鹤形字根图"></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="方案1：rime-挂接（官方）"><a href="#方案1：rime-挂接（官方）" class="headerlink" title="方案1：rime 挂接（官方）"></a>方案1：rime 挂接（官方）</h3><p>小鹤官方只提供了 Windows 和 Android 版安装包，其他平台需要使用 rime 挂接。但是 deepin 仓库中未提供 fcitx5-rime 包，需要我们自己编译安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装编译工具</span><br>sudo apt-get install -y build-essential cmake-extras extra-cmake-modules<br><br><span class="hljs-comment"># 编译支持 lua 的 librime 库</span><br>sudo apt-get install -y libcapnp-dev libgoogle-glog-dev libyaml-cpp-dev libleveldb-dev libmarisa-dev capnproto<br>git <span class="hljs-built_in">clone</span> https://github.com/rime/librime.git ~/workspace/librime<br><span class="hljs-built_in">cd</span> ~/workspace/librime<br>./install-plugins.sh hchunhui/librime-lua<br>make merged-plugins<br>sudo make install<br><br><span class="hljs-comment"># 编译 fcitx5-rime</span><br>sudo apt-get install -y appstream libecm-dev libfcitx5core-dev fcitx5-modules-dev<br><span class="hljs-built_in">mkdir</span> -p ~/workspace/fcitx5-rime<br>git <span class="hljs-built_in">clone</span> https://github.com/fcitx/fcitx5-rime.git ~/workspace/fcitx5-rime<br><span class="hljs-built_in">mkdir</span> -p ~/workspace/fcitx5-rime/build<br><span class="hljs-built_in">cd</span> ~/workspace/fcitx5-rime/build<br>cmake .. -DCMAKE_INSTALL_PREFIX=/usr<br>make -j4<br>sudo make install<br></code></pre></td></tr></table></figure>
-<p>编译安装完成后，下载小鹤网盘<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="小鹤网盘
-">[2]</span></a></sup>中挂接文件 <code>3.1.挂接——音形码/小鹤音形“鼠须管”for macOS.zip</code>。解压后，将 rime 目录中所有文件复制到 <code>~/.local/share/fcitx5/rime</code> 目录中。重启 fcitx5 ，添加 <code>中州韻</code> 输入法后即可使用。<br><img src="/img/posts/use-flypy-in-deepin/fcitx5-rime.png" srcset="/img/loading.gif" lazyload alt="fcitx5-rime"></p>
-<h3 id="方案2：fcitx5-flypy"><a href="#方案2：fcitx5-flypy" class="headerlink" title="方案2：fcitx5-flypy"></a>方案2：fcitx5-flypy</h3><p>fcitx5-flypy 是基于公开码表打造的适配 fcitx5 的输入法，无需安装 rime 即可使用。编译安装方法如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装编译工具</span><br>sudo apt-get install -y build-essential cmake-extras extra-cmake-modules<br><br><span class="hljs-comment"># 编译 fcitx5-lua (orq 输入当前日期功能使用 lua 实现，如不需要，可以跳过此步)</span><br>sudo apt-get install -y gettext appstream libfcitx5core-dev fcitx5-modules-dev liblua5.3-dev <br><span class="hljs-built_in">mkdir</span> -p ~/workspace/fcitx5-lua<br>git <span class="hljs-built_in">clone</span> https://github.com/fcitx/fcitx5-lua.git ~/workspace/fcitx5-lua<br><span class="hljs-built_in">mkdir</span> -p ~/workspace/fcitx5-lua/build<br><span class="hljs-built_in">cd</span> ~/workspace/fcitx5-lua/build<br>cmake .. -DCMAKE_INSTALL_PREFIX=/usr<br>make -j4<br>sudo make install<br><br><span class="hljs-comment"># 编译 fcitx5-flypy</span><br>sudo apt-get install -y gettext appstream libecm-dev libfcitx5core-dev libboost-dev libimecore-dev libimetable-dev<br><span class="hljs-built_in">mkdir</span> -p ~/workspace/fcitx5-flypy<br>git <span class="hljs-built_in">clone</span> https://github.com/kt286/fcitx5-flypy.git ~/workspace/fcitx5-flypy<br><span class="hljs-built_in">mkdir</span> -p ~/workspace/fcitx5-flypy/build<br><span class="hljs-built_in">cd</span> ~/workspace/fcitx5-flypy/build<br>cmake .. -DCMAKE_INSTALL_PREFIX=/usr<br>make -j4<br>sudo make install<br></code></pre></td></tr></table></figure>
-<p>目前发现几个小问题：</p>
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用深度文件管理器的时候，遇到一些小问题。翻了翻代码，发现修改起来不是很复杂，就顺手改了。下面记录一下修改内容。本次修改基于最新内测版5.6.3。</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt <span class="hljs-built_in">source</span> dde-file-manager<br><span class="hljs-built_in">cd</span> dde-file-manager-5.6.3<br>sudo apt build-dep .<br></code></pre></td></tr></table></figure>
+
+<h2 id="修改内容"><a href="#修改内容" class="headerlink" title="修改内容"></a>修改内容</h2><p>环境配置好后就可以修改了，本次修改的内容如下：</p>
+<h3 id="1-列表模式显示太密集"><a href="#1-列表模式显示太密集" class="headerlink" title="1.列表模式显示太密集"></a>1.列表模式显示太密集</h3><p>这个问题很简单，就是改一下列表项高度。</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs diff"># src/dde-file-manager-lib/interfaces/dlistitemdelegate.cpp<br><br>void DListItemDelegate::updateItemSizeHint()<br>&#123;<br>    Q_D(DListItemDelegate);<br><br>    d-&gt;textLineHeight = parent()-&gt;parent()-&gt;fontMetrics().lineSpacing();<br><span class="hljs-deletion">-    d-&gt;itemSizeHint = QSize(-1, qMax(int(parent()-&gt;parent()-&gt;iconSize().height() * 1.1), d-&gt;textLineHeight));</span><br><span class="hljs-addition">+    d-&gt;itemSizeHint = QSize(-1, qMax(int(parent()-&gt;parent()-&gt;iconSize().height() * 1.5), d-&gt;textLineHeight));</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/img/posts/dde-file-manager-beautify/1.png" srcset="/img/loading.gif" lazyload alt="修改前"><br><img src="/img/posts/dde-file-manager-beautify/2.png" srcset="/img/loading.gif" lazyload alt="修改后"></p>
+<h3 id="2-浅色主题下，计算机里我的目录中文件夹选中后文字看不清楚"><a href="#2-浅色主题下，计算机里我的目录中文件夹选中后文字看不清楚" class="headerlink" title="2.浅色主题下，计算机里我的目录中文件夹选中后文字看不清楚"></a>2.浅色主题下，计算机里我的目录中文件夹选中后文字看不清楚</h3><p>这个问题比较有意思，文字高亮颜色为白色，浅色主题中看不清楚，深色主题反而效果很好。这里有两种修改思路</p>
 <ol>
-<li>使用万能键 ` 时，会提示词语，而不仅仅是单字</li>
-<li>码表中记录条数没有官方码表多（Windows 版有 67656 条数据，但本项目只有 57655 条数据）</li>
-<li><del>使用 orq、ouj 无法输入当前日期和时间</del></li>
+<li>判断一下使用的主题，分别设置不同的文字高亮颜色</li>
+<li>去掉文字高亮<br>为了和其他地方保持一致，这里选择方案2</li>
 </ol>
-<p><img src="/img/posts/use-flypy-in-deepin/mabn.png" srcset="/img/loading.gif" lazyload alt="Windows 版码表"></p>
-<p>如在使用过程中遇到其他问题，欢迎到 <a target="_blank" rel="noopener" href="https://github.com/kt286/fcitx5-flypy/issues">github</a> 中提 issue。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ol>
-<li>deepin 20 仓库里虽然提供了 fcitx5，但是只提供了一些基础包。fcitx5-rime、fcitx5-lua 等都没有提供。希望后续可以补全。</li>
-<li>使用了一段时间小鹤音形后，输入人名拼音时会不自觉输入双拼。而且由于之前过于依赖拼音输入法，导致很多字只会读，不会写。打字速度反而明显降低。需要一段时间去适应。算是有得有失吧。</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://help.flypy.com/#/xh">小鹤入门</a>
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="http://flypy.ys168.com/">小鹤网盘</a>
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs diff"># src/dde-file-manager-lib/views/computerviewitemdelegate.cpp<br><br>void ComputerViewItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &amp;option, const QModelIndex &amp;index) const<br>&#123;<br><br># 省略部分代码<br><br>        painter-&gt;setFont(par-&gt;font());<br><span class="hljs-deletion">-        painter-&gt;setPen(qApp-&gt;palette().color((option.state &amp; QStyle::StateFlag::State_Selected) ? QPalette::ColorRole::HighlightedText : QPalette::ColorRole::Text));</span><br><span class="hljs-addition">+        painter-&gt;setPen(qApp-&gt;palette().color(QPalette::ColorRole::Text));</span><br>        painter-&gt;drawText(option.rect.x() + (option.rect.width() - fstw) / 2, option.rect.y() + topmargin + iconsize + text_topmargin, elided_text);<br>        return;<br><br># 省略部分代码<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/img/posts/dde-file-manager-beautify/3.png" srcset="/img/loading.gif" lazyload alt="修改前"><br><img src="/img/posts/dde-file-manager-beautify/4.png" srcset="/img/loading.gif" lazyload alt="修改后"></p>
+<h3 id="3-开启保险箱功能"><a href="#3-开启保险箱功能" class="headerlink" title="3.开启保险箱功能"></a>3.开启保险箱功能</h3><p>保险箱功能实际上代码里有，只是判断了仅在 UOS 专业版中开放，我们只需要去掉这些判断即可。</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs diff"># src/dde-file-manager-lib/vault/vaulthelper.cpp<br><br>bool VaultHelper::isVaultEnabled()<br>&#123;<br><span class="hljs-addition">+    return true;</span><br><span class="hljs-deletion">-    if (!VaultController::ins()-&gt;isVaultVisiable())     // 判断域管策略,是否显示保险箱</span><br><span class="hljs-deletion">-        return false;</span><br><span class="hljs-deletion">-</span><br><span class="hljs-deletion">-    // 获取系统类型</span><br><span class="hljs-deletion">-    DSysInfo::UosType uosType = DSysInfo::uosType();</span><br><span class="hljs-deletion">-    // 获取系统版本</span><br><span class="hljs-deletion">-    DSysInfo::UosEdition uosEdition = DSysInfo::uosEditionType();</span><br><span class="hljs-deletion">-    if (DSysInfo::UosServer == uosType) &#123;   // 如果是服务器类型</span><br><span class="hljs-deletion">-        // 如果是企业版/行业版/欧拉版</span><br><span class="hljs-deletion">-        if (DSysInfo::UosEnterprise == uosEdition</span><br><span class="hljs-deletion">-                || DSysInfo::UosEnterpriseC == uosEdition</span><br><span class="hljs-deletion">-                || DSysInfo::UosEuler == uosEdition) &#123;</span><br><span class="hljs-deletion">-            return true;</span><br><span class="hljs-deletion">-        &#125;</span><br><span class="hljs-deletion">-    &#125; else if (DSysInfo::UosDesktop == uosType) &#123;   // 如果是桌面类型</span><br><span class="hljs-deletion">-        // 如果是专业版</span><br><span class="hljs-deletion">-        if (DSysInfo::UosProfessional == uosEdition) &#123;</span><br><span class="hljs-deletion">-            return true;</span><br><span class="hljs-deletion">-        &#125;</span><br><span class="hljs-deletion">-    &#125;</span><br><span class="hljs-deletion">-    return false;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/img/posts/dde-file-manager-beautify/5.png" srcset="/img/loading.gif" lazyload alt="修改后"></p>
+<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> build<br><span class="hljs-built_in">cd</span> build<br>qmake ../filemanager.pro<br>make -j4<br>sudo <span class="hljs-built_in">cp</span> src/dde-file-manager-lib/libdde-file-manager.so.1.8.2 /usr/lib/x86_64-linux-gnu/<br></code></pre></td></tr></table></figure>
+
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>文件管理器还有另一个问题：文件夹中文件数量过多时，需要大量时间才可以全部加载完成。能力有限，就等待官方修改吧。</p>
+
               
             </div>
             <hr/>
@@ -368,10 +362,6 @@
       
         <a href="/tags/deepin/">#deepin</a>
       
-        <a href="/tags/flypy/">#flypy</a>
-      
-        <a href="/tags/rime/">#rime</a>
-      
     </div>
   
 </div>
@@ -382,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>在 deepin 中使用小鹤音形</div>
-      <div>https://blog.kt286.com/post/use-flypy-in-deepin/</div>
+      <div>深度文件管理器改造小记</div>
+      <div>https://blog.kt286.com/post/dde-file-manager-beautify/</div>
     </div>
     <div class="license-meta">
       
@@ -395,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年3月14日</div>
+          <div>2022年5月19日</div>
         </div>
       
       
@@ -425,18 +415,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/dde-file-manager-beautify/" title="深度文件管理器改造小记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">深度文件管理器改造小记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/reduce-wine-wechat-memory-usage/" title="大幅降低 Wine 微信内存占用">
-                        <span class="hidden-mobile">大幅降低 Wine 微信内存占用</span>
+                      <a href="/post/use-flypy-in-deepin/" title="在 deepin 中使用小鹤音形">
+                        <span class="hidden-mobile">在 deepin 中使用小鹤音形</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
