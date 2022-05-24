@@ -55,8 +55,11 @@ gsettings set com.deepin.xsettings dtk-window-radius 8  # 窗口圆角-中
 gsettings set com.deepin.dde.dock display-mode 'efficient'  # dock-高效模式
 gsettings set com.deepin.dde.dock window-size-efficient 46  # dock-高度增加
 
-gsettings set com.deepin.dde.dock.module.multitasking enable false  # dock-禁用多任务窗口插件（待调整为只关闭，不禁用）
-gsettings set com.deepin.dde.dock.module.show-desktop enable false  # dock-禁用显示桌面插件（待调整为只关闭，不禁用）
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '显示桌面' false  # dock-禁用显示桌面插件
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '屏幕键盘' false  # dock-禁用屏幕键盘插件
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '多任务视图' false  # dock-禁用多任务窗口插件
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '通知中心' false  # dock-禁用通知中心插件
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '全局搜索' false  # dock-禁用全局搜索插件
 
 gsettings set com.deepin.dde.mouse disable-touchpad true  #插入鼠标时禁用触控板
 
@@ -73,8 +76,8 @@ gsettings set com.deepin.dde.power line-power-screen-black-delay 900  #连接电
 gsettings set com.deepin.dde.power line-power-sleep-delay 0  #连接电源-进入待机模式 从不
 
 #添加Chrome源到source.list.d
-wget -q -O - http://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 
 #添加VSCode源到source.list.d
 wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -106,6 +109,7 @@ rm -rf ~/.config/google-chrome/PepperFlash/
 
 #卸载深度帮助手册和深度欢迎两个没用还占地方的东西（会同时卸载dde，貌似没啥问题）
 sudo apt-get purge -y deepin-manual
+sudo apt-get purge -y dde-manual-content
 sudo apt-get purge -y dde-introduction
 
 #卸载自己不需要的软件
@@ -128,12 +132,8 @@ sudo apt-get purge -y libreoffice*
 sudo apt-get purge -y simple-scan
 sudo apt-get purge -y printer-driver-deepin-cloud-print
 sudo apt-get purge -y org.deepin.browser
-sudo apt-get purge -y yelp
+sudo apt-get purge -y deepin-forum
 sudo apt-get purge -y fcitx*
-
-#这两个是控制中心里修改屏幕色温的，但是切换英伟达驱动后无法修改，所以卸载
-sudo apt-get purge -y geoclue-2.0
-sudo apt-get purge -y redshift
 
 #更新20.4后，卸载这个会导致无法右键跳转到设置，酌情卸载
 #sudo apt-get purge -y onboard-common
@@ -153,6 +153,8 @@ sudo apt-get install -y curl
 sudo apt-get install -y git
 sudo apt-get install -y console-setup
 sudo apt-get install -y cmake-extras
+sudo apt-get install -y extra-cmake-modules
+sudo apt-get install -y build-essential
 sudo apt-get install -y code
 sudo apt-get install -y google-chrome-stable
 sudo apt-get install -y com.qq.office.deepin
@@ -166,12 +168,21 @@ sudo apt-get install -y bcompare
 sudo apt-get install -y nodejs
 sudo apt-get install -y remmina
 
-#卸载fcitx时会同时卸载qdbus，导致截图录屏无法使用快捷键呼出，重新安装修复(安装 qdbus-qt5 也可以，不知道有什么区别)
-sudo apt-get install -y qdbus
-
 #安装nvidia闭源驱动
 sudo apt-get install -y nvidia-detect
 nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-get -y install
+
+#安装任务栏显卡驱动切换插件
+wget -t 3 -T 15 https://github.com/zty199/dde-dock-switch_graphics_card/releases/download/v1.8.4-1/dde-dock-graphics-plugin_1.8.4-1_amd64.deb
+sudo apt-get install -y ./dde-dock-graphics-plugin_1.8.4-1_amd64.deb
+
+#用于编译fcitx5-rime
+sudo apt-get install -y libecm-dev
+sudo apt-get install -y libfcitx5core-dev
+sudo apt-get install -y fcitx5-modules-dev
+sudo apt-get install -y librime-dev
+sudo apt-get install -y appstream
+sudo apt-get install -y gettext
 
 #隐藏启动器中 fcitx5配置、键盘布局查看工具
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
@@ -192,9 +203,6 @@ cp -r /opt/apps/com.oray.sunlogin.client/entries/applications/* ~/.local/share/a
 cp -r /opt/apps/cn.wps.wps-office/entries/icons/* ~/.local/share/icons/
 cp -r /opt/apps/cn.wps.wps-office/entries/applications/* ~/.local/share/applications/
 
-#修复卸载多个软件后重启，启动器中又出现已卸载的图标
-rm -rf ~/.config/deepin/dde-launcher-app-used-sorted-list.conf
-
 #修复安装VSCode后，Win + E 打开的是VSCode
 xdg-mime default dde-file-manager.desktop inode/directory
 
@@ -206,38 +214,39 @@ mkdir -p ~/.config/autostart
 sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop
 
 #fcitx5图标美化
-wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/pinyin.svg
-sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.svg
-sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.fcitx-pinyin.svg
+#wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/pinyin.svg
+#sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.svg
+#sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.fcitx-pinyin.svg
+#sudo cp pinyin.svg /usr/share/icons/bloom/status/48/fcitx-pinyin.svg
 
 sudo mv /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak
 sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
 
 #fcitx5词库
+mkdir -p ~/.local/share/fcitx5/pinyin/dictionaries
 wget -t 3 -T 15 https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.3/zhwiki-20220226.dict
 sudo cp zhwiki-20220226.dict ~/.local/share/fcitx5/pinyin/dictionaries/fcitx5-pinyin-zhwiki.dict
 
 #fcitx5皮肤
 mkdir -p ~/.local/share/fcitx5/themes/Material-Color
 git clone https://github.com/hosxy/Fcitx5-Material-Color.git ~/.local/share/fcitx5/themes/Material-Color
-ln -s ~/.local/share/fcitx5/themes/Material-Color/theme-blue.conf ~/.local/share/fcitx5/themes/Material-Colortheme.conf
+ln -s ~/.local/share/fcitx5/themes/Material-Color/theme-blue.conf ~/.local/share/fcitx5/themes/Material-Color/theme.conf
+
+#编译fcitx5-rime
+mkdir -p ~/workspace/fcitx5-rime
+git clone https://github.com/fcitx/fcitx5-rime.git ~/workspace/fcitx5-rime
+mkdir -p ~/workspace/fcitx5-rime/build
+cd ~/workspace/fcitx5-rime/build
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr
+make -j4
+sudo make install
+
+#返回用户下载目录
+cd ~/Downloads
 
 #使用自己编译的深度音乐
 wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/deepin-music
 sudo cp deepin-music /usr/bin/deepin-music
-
-#TIM使用公共deepin-wine6-stable
-sudo rm -rf /opt/apps/com.qq.office.deepin/files/helper_archive.7z
-sudo rm -rf /opt/apps/com.qq.office.deepin/files/helper_archive.md5sum
-sudo rm -rf /opt/apps/com.qq.office.deepin/files/wine_archive.7z
-sudo rm -rf /opt/apps/com.qq.office.deepin/files/wine_archive.md5sum
-
-sudo cp /opt/apps/com.qq.office.deepin/files/run.sh /opt/apps/com.qq.office.deepin/files/run.sh.bak
-sudo cp -r /opt/apps/com.qq.weixin.deepin/files/run.sh /opt/apps/com.qq.office.deepin/files/run.sh
-sudo sed -i 's/Deepin-WeChat/Deepin-TIM/g' /opt/apps/com.qq.office.deepin/files/run.sh
-sudo sed -i 's/3.4.0.38deepin4/3.3.5.22018deepin8/g' /opt/apps/com.qq.office.deepin/files/run.sh
-sudo sed -i 's/WeChat\/WeChat/TIM\/Bin\/TIM/g' /opt/apps/com.qq.office.deepin/files/run.sh
-sudo sed -i 's/com.qq.weixin.deepin/com.qq.office.deepin/g' /opt/apps/com.qq.office.deepin/files/run.sh
 
 #更新TIM到最新版本
 sh -c  '/opt/apps/com.qq.office.deepin/files/run.sh -c'
