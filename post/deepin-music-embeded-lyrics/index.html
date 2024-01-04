@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.kt286.com","root":"/","version":"1.9.1","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.kt286.com","root":"/","version":"1.9.7","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -86,9 +86,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
 
   
-<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="kt286" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="kt286" type="application/atom+xml">
 <link rel="alternate" href="/rss.xml" title="kt286" type="application/rss+xml">
 </head>
 
@@ -121,9 +123,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -133,9 +135,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -145,9 +147,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -157,9 +159,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -169,9 +171,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -181,9 +183,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                <span>友链</span>
               </a>
             </li>
           
@@ -191,15 +193,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -239,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          880 字
         
       </span>
     
@@ -250,7 +253,7 @@
         
         
         
-          28 分钟
+          8 分钟
         
       </span>
     
@@ -295,46 +298,42 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">为深度音乐添加内嵌歌词支持</h1>
+            <h1 id="seo-header">为深度音乐添加内嵌歌词支持</h1>
             
-              <p class="note note-info">
+              <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于：2022-01-30 12:27:09
+                    本文最后更新于 2022-01-30 12:27:09
                   
                 
               </p>
             
-            <div class="markdown-body">
-              
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个月黑风高的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。</p>
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个月黑风高的晚上，结束了一天的紧张工作（摸鱼）后打算在睡前听一会网抑云音乐。刚要打开播放器的时候突然想到之前看到的深度音乐的截图，决定试用一下。</p>
 <p>将下载好的音乐导入深度音乐后点击播放，兴冲冲的打开歌词显示，大大的“没有找到歌词”映入眼帘<br><img src="/img/posts/deepin-music-embeded-lyrics/1.png" srcset="/img/loading.gif" lazyload alt="没有找到歌词"></p>
 <p>不对呀，我记得我下载歌曲的时候明明勾选了嵌入歌词的。掏出祖传的 <code>ffprobe</code> 查看了一下，发现确实是有歌词的。看来是深度音乐不支持了。与其慢慢等官方实现，不如自己动手、丰衣足食。<br><img src="/img/posts/deepin-music-embeded-lyrics/2.png" srcset="/img/loading.gif" lazyload alt="ffprobe 结果"></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>既然知道歌词已经写到歌曲中了。就先看看写到了歌曲的什么位置，打开 <a target="_blank" rel="noopener" href="https://github.com/lyswhut/lx-music-desktop">洛雪音乐助手</a> 的源码，全局搜索 <code>lyrics</code>，找到如下代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// src/main/utils/mp3Meta.js</span><br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">handleWriteMeta</span> = (<span class="hljs-params">meta, filePath</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (meta.<span class="hljs-property">lyrics</span>) &#123;<br>    meta.<span class="hljs-property">unsynchronisedLyrics</span> = &#123;<br>      <span class="hljs-attr">language</span>: <span class="hljs-string">&#x27;zho&#x27;</span>,<br>      <span class="hljs-attr">text</span>: meta.<span class="hljs-property">lyrics</span>,<br>    &#125;<br>    <span class="hljs-keyword">delete</span> meta.<span class="hljs-property">lyrics</span><br>  &#125;<br>  <span class="hljs-title class_">NodeID3</span>.<span class="hljs-title function_">write</span>(meta, filePath)<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>根据代码我们可以知道歌词被写入到 ID3 标签中的 <code>unsynchronisedLyrics</code> 中。Google 了一下，发现这个是 ID3v2 标准专门用来存储文本歌词<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Unsychronised_lyrics_text_transcription - id3v2.3.0 - ID3.org
-">[1]</span></a></sup>的，而洛雪音乐助手写入的是 lrc 格式的歌词，所以我们只需要读取这个属性中内容，直接提供给深度音乐显示就可以了。</p>
+<p>根据代码我们可以知道歌词被写入到 ID3 标签中的 <code>unsynchronisedLyrics</code> 中。Google 了一下，发现这个是 ID3v2 标准专门用来存储文本歌词<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Unsychronised_lyrics_text_transcription - id3v2.3.0 - ID3.org](https://id3.org/id3v2.3.0#Unsychronised_lyrics.2Ftext_transcription)">[1]</span></a></sup>的，而洛雪音乐助手写入的是 lrc 格式的歌词，所以我们只需要读取这个属性中内容，直接提供给深度音乐显示就可以了。</p>
 <h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>歌词的提取我们可以参考深度音乐对歌曲封面图的处理方法：添加歌曲后开始读取歌词，读取到歌词后，写入缓存文件夹里的 lyrics 文件夹。播放时先使用原来的逻辑获取歌曲同目录下同名歌词文件，如果没找到就去缓存文件夹里 lyrics 文件夹中查找歌词文件，如果还没找到再显示“没有找到歌词”。</p>
-<p>核心代码如下，代码参考了 Stack Overflow 的一个回答<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="macos - How to get the lyrics of a song from the song file - Stack Overflow
-">[2]</span></a></sup> 和 TagLib 文档<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="TagLib API Documentation
-">[3]</span></a></sup></p>
+<p>核心代码如下，代码参考了 Stack Overflow 的一个回答<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[macos - How to get the lyrics of a song from the song file - Stack Overflow](https://stackoverflow.com/questions/11051055/how-to-get-the-lyrics-of-a-song-from-the-song-file)">[2]</span></a></sup> 和 TagLib 文档<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[TagLib API Documentation](https://taglib.org/api/namespaceTagLib_1_1ID3v2.html)">[3]</span></a></sup></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// src/libdmusic/metadetector.cpp</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;taglib/mpegfile.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;taglib/id3v2tag.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;taglib/id3v2frame.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;taglib/unsynchronizedlyricsframe.h&gt;</span></span><br><br><span class="hljs-comment">// 获取歌词数据，写到缓存目录</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MetaDetector::getLyricData</span><span class="hljs-params">(<span class="hljs-type">const</span> QString &amp;path, <span class="hljs-type">const</span> QString &amp;tmpPath, <span class="hljs-type">const</span> QString &amp;hash)</span></span><br><span class="hljs-function"></span>&#123;<br>    QString lyricsDirPath = tmpPath + <span class="hljs-string">&quot;/lyrics&quot;</span>;<br>    QString lyricName = hash + <span class="hljs-string">&quot;.lrc&quot;</span>;<br>    <span class="hljs-function">QDir <span class="hljs-title">lyricsDir</span><span class="hljs-params">(lyricsDirPath)</span></span>;<br>    <span class="hljs-keyword">if</span> (!lyricsDir.<span class="hljs-built_in">exists</span>()) &#123;<br>        <span class="hljs-type">bool</span> isExists = lyricsDir.<span class="hljs-built_in">cdUp</span>();<br>        isExists &amp;= lyricsDir.<span class="hljs-built_in">mkdir</span>(<span class="hljs-string">&quot;lyrics&quot;</span>);<br>        isExists &amp;= lyricsDir.<span class="hljs-built_in">cd</span>(<span class="hljs-string">&quot;lyrics&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (!path.<span class="hljs-built_in">isEmpty</span>() &amp;&amp; !tmpPath.<span class="hljs-built_in">isEmpty</span>() &amp;&amp; !hash.<span class="hljs-built_in">isEmpty</span>()) &#123;<br>        <span class="hljs-keyword">if</span> (!lyricsDir.<span class="hljs-built_in">exists</span>(lyricName)) &#123;<br>            <span class="hljs-function">QFile <span class="hljs-title">lyric</span><span class="hljs-params">(lyricsDirPath + <span class="hljs-string">&quot;/&quot;</span> + lyricName)</span></span>;<br><br>            TagLib::<span class="hljs-function">MPEG::File <span class="hljs-title">f1</span><span class="hljs-params">(path.toStdString().c_str())</span></span>;<br>            TagLib::ID3v2::FrameList frames = f1.<span class="hljs-built_in">ID3v2Tag</span>()-&gt;<span class="hljs-built_in">frameListMap</span>()[<span class="hljs-string">&quot;USLT&quot;</span>];<br>            <span class="hljs-keyword">if</span> (!frames.<span class="hljs-built_in">isEmpty</span>()) &#123;<br>                TagLib::ID3v2::UnsynchronizedLyricsFrame *frame = <span class="hljs-built_in">dynamic_cast</span>&lt;TagLib::ID3v2::UnsynchronizedLyricsFrame *&gt;(frames.<span class="hljs-built_in">front</span>());<br>                <span class="hljs-keyword">if</span> (frame) &#123;<br>                    <span class="hljs-keyword">if</span> (lyric.<span class="hljs-built_in">open</span>(QIODevice::WriteOnly)) &#123;<br>                        QString str = <span class="hljs-built_in">TStringToQString</span>(frame-&gt;<span class="hljs-built_in">text</span>());<br>                        lyric.<span class="hljs-built_in">write</span>(str.<span class="hljs-built_in">toUtf8</span>());<br>                    &#125;<br>                    lyric.<span class="hljs-built_in">close</span>();<br>                &#125;<br>            &#125;   <br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// src/music-player/widget/lrc/musiclyricwidget.cpp</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MusicLyricWidget::onMusicPlayed</span><span class="hljs-params">(MediaMeta meta)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">Q_UNUSED</span>(meta)<br>    <span class="hljs-function">QFileInfo <span class="hljs-title">fileInfo</span><span class="hljs-params">(Player::getInstance()-&gt;getActiveMeta().localPath)</span></span>;<br>    QString lrcPath = fileInfo.<span class="hljs-built_in">dir</span>().<span class="hljs-built_in">path</span>() + QDir::<span class="hljs-built_in">separator</span>() + fileInfo.<span class="hljs-built_in">completeBaseName</span>() + <span class="hljs-string">&quot;.lrc&quot;</span>;<br>    <span class="hljs-function">QFile <span class="hljs-title">file</span><span class="hljs-params">(lrcPath)</span></span>;<br>    <span class="hljs-keyword">if</span> (!file.<span class="hljs-built_in">exists</span>()) &#123;<br>        <span class="hljs-comment">// 读取根目录中歌词文件失败后读取媒体文件内嵌的歌词</span><br>        MediaMeta meta = Player::<span class="hljs-built_in">getInstance</span>()-&gt;<span class="hljs-built_in">getActiveMeta</span>();<br>        <span class="hljs-function">QFileInfo <span class="hljs-title">lyricInfo</span><span class="hljs-params">(Global::cacheDir() + <span class="hljs-string">&quot;/lyrics/&quot;</span> + meta.hash + <span class="hljs-string">&quot;.lrc&quot;</span>)</span></span>;<br>        <span class="hljs-keyword">if</span> (!lyricInfo.<span class="hljs-built_in">exists</span>()) &#123;<br>            m_nolyric-&gt;<span class="hljs-built_in">show</span>();<br>            m_lyricview-&gt;<span class="hljs-built_in">hide</span>();<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            m_nolyric-&gt;<span class="hljs-built_in">hide</span>();<br>            m_lyricview-&gt;<span class="hljs-built_in">show</span>();<br>            m_lyricview-&gt;<span class="hljs-built_in">getFromFile</span>(lyricInfo.<span class="hljs-built_in">filePath</span>());<br>        &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        m_nolyric-&gt;<span class="hljs-built_in">hide</span>();<br>        m_lyricview-&gt;<span class="hljs-built_in">show</span>();<br>        m_lyricview-&gt;<span class="hljs-built_in">getFromFile</span>(lrcPath);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>完整代码见：<a target="_blank" rel="noopener" href="https://github.com/linuxdeepin/deepin-music/pull/111/">https://github.com/linuxdeepin/deepin-music/pull/111/</a></p>
 <p><img src="/img/posts/deepin-music-embeded-lyrics/3.png" srcset="/img/loading.gif" lazyload alt="效果图"></p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>本次修改只实现了对 ID3v2 标签中非同步歌词<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Unsychronised_lyrics_text_transcription - id3v2.3.0 - ID3.org
-">[1]</span></a></sup>的读取。至于另一种同步歌词<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="Synchronised_lyrics_text - id3v2.3.0 - ID3.org
-">[4]</span></a></sup>，手头上没有测试文件，就暂时搁置，以后有时间再来实现。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>本次修改只实现了对 ID3v2 标签中非同步歌词<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Unsychronised_lyrics_text_transcription - id3v2.3.0 - ID3.org](https://id3.org/id3v2.3.0#Unsychronised_lyrics.2Ftext_transcription)">[1]</span></a></sup>的读取。至于另一种同步歌词<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Synchronised_lyrics_text - id3v2.3.0 - ID3.org](https://id3.org/id3v2.3.0#Synchronised_lyrics.2Ftext)">[4]</span></a></sup>，手头上没有测试文件，就暂时搁置，以后有时间再来实现。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://id3.org/id3v2.3.0#Unsychronised_lyrics.2Ftext_transcription">Unsychronised_lyrics_text_transcription - id3v2.3.0 - ID3.org</a>
 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11051055/how-to-get-the-lyrics-of-a-song-from-the-song-file">macos - How to get the lyrics of a song from the song file - Stack Overflow</a>
 <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://taglib.org/api/namespaceTagLib_1_1ID3v2.html">TagLib API Documentation</a>
 <a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://id3.org/id3v2.3.0#Synchronised_lyrics.2Ftext">Synchronised_lyrics_text - id3v2.3.0 - ID3.org</a>
 <a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
-              
-            </div>
+                
+              </div>
+            
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -364,11 +363,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/deepin/">#deepin</a>
+        <a href="/tags/deepin/" class="print-no-link">#deepin</a>
       
-        <a href="/tags/music/">#music</a>
+        <a href="/tags/music/" class="print-no-link">#music</a>
       
-        <a href="/tags/c/">#c++</a>
+        <a href="/tags/c/" class="print-no-link">#c++</a>
       
     </div>
   
@@ -397,21 +396,23 @@
         </div>
       
       
-      <div class="license-meta-item">
-        <div>许可协议</div>
-        <div>
-          
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
             
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
             
-              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-              <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                <i class="iconfont icon-by"></i>
-              </span>
-              </a>
-            
-          
+          </div>
         </div>
-      </div>
+      
     </div>
     <div class="license-icon iconfont"></div>
   </div>
@@ -454,7 +455,10 @@
       
   <aside class="sidebar" style="margin-left: -1rem">
     <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -488,6 +492,7 @@
 
 
   
+
 
 
 
@@ -590,8 +595,6 @@
 
 
 
-
-
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -607,94 +610,41 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init({
+    window.tocbot.init(Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
       linkClass       : 'tocbot-link',
       activeLinkClass : 'tocbot-active-link',
       listClass       : 'tocbot-list',
       isCollapsedClass: 'tocbot-is-collapsed',
       collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
       scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
   });
 </script>
 
 
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
   
@@ -716,6 +666,21 @@
       window.anchors.options.class = 'anchorjs-link-left';
     }
     window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
   });
 </script>
 

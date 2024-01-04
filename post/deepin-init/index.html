@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.kt286.com","root":"/","version":"1.9.1","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.kt286.com","root":"/","version":"1.9.7","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -80,9 +80,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
 
   
-<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="kt286" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="kt286" type="application/atom+xml">
 <link rel="alternate" href="/rss.xml" title="kt286" type="application/rss+xml">
 </head>
 
@@ -115,9 +117,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -127,9 +129,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -139,9 +141,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -151,9 +153,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -163,9 +165,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -175,9 +177,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/links/" target="_self">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                <span>友链</span>
               </a>
             </li>
           
@@ -185,15 +187,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -233,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.6k 字
+          1.8k 字
         
       </span>
     
@@ -244,7 +247,7 @@
         
         
         
-          80 分钟
+          15 分钟
         
       </span>
     
@@ -289,20 +292,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">我的 deepin 初始化脚本</h1>
+            <h1 id="seo-header">我的 deepin 初始化脚本</h1>
             
-              <p class="note note-info">
+              <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于：2022-05-30 09:37:40
+                    本文最后更新于 2022-05-30 09:37:40
                   
                 
               </p>
             
-            <div class="markdown-body">
-              
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本人一直喜欢折腾系统，经常会玩过头把系统搞崩溃。每次重装后都需要进行大量配置，费时费力。所以写了个脚本一键配置，解放双手。</p>
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本人一直喜欢折腾系统，经常会玩过头把系统搞崩溃。每次重装后都需要进行大量配置，费时费力。所以写了个脚本一键配置，解放双手。</p>
 <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><table>
 <thead>
 <tr>
@@ -336,8 +339,9 @@
 <p>连接不上 Github 的同学也可以复制下文中脚本，另存为 <code>deepin-init.sh</code> 文件使用</p>
 <h2 id="脚本原文"><a href="#脚本原文" class="headerlink" title="脚本原文"></a>脚本原文</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-comment">#先进到用户下载目录</span><br><span class="hljs-built_in">cd</span> ~/Downloads<br><br><span class="hljs-comment"># 关闭控制中心自动更新</span><br>busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoCheckUpdates b 0<br>busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoDownloadUpdates b 0<br>busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetUpdateNotify b 0<br>busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Manager SetAutoClean b 0<br><br><span class="hljs-comment"># 系统设置</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.xsettings dtk-window-radius 8  <span class="hljs-comment"># 窗口圆角-中</span><br><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.dock display-mode <span class="hljs-string">&#x27;efficient&#x27;</span>  <span class="hljs-comment"># dock-高效模式</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.dock window-size-efficient 46  <span class="hljs-comment"># dock-高度增加</span><br><br>busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb <span class="hljs-string">&#x27;显示桌面&#x27;</span> <span class="hljs-literal">false</span>  <span class="hljs-comment"># dock-禁用显示桌面插件</span><br>busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb <span class="hljs-string">&#x27;屏幕键盘&#x27;</span> <span class="hljs-literal">false</span>  <span class="hljs-comment"># dock-禁用屏幕键盘插件</span><br>busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb <span class="hljs-string">&#x27;多任务视图&#x27;</span> <span class="hljs-literal">false</span>  <span class="hljs-comment"># dock-禁用多任务窗口插件</span><br>busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb <span class="hljs-string">&#x27;通知中心&#x27;</span> <span class="hljs-literal">false</span>  <span class="hljs-comment"># dock-禁用通知中心插件</span><br>busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb <span class="hljs-string">&#x27;全局搜索&#x27;</span> <span class="hljs-literal">false</span>  <span class="hljs-comment"># dock-禁用全局搜索插件</span><br>busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb <span class="hljs-string">&#x27;截图录屏&#x27;</span> <span class="hljs-literal">false</span>  <span class="hljs-comment"># dock-禁用截图录屏插件</span><br><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.mouse disable-touchpad <span class="hljs-literal">true</span>  <span class="hljs-comment">#插入鼠标时禁用触控板</span><br><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power battery-lid-closed-action <span class="hljs-string">&#x27;turnOffScreen&#x27;</span> <span class="hljs-comment">#使用电池-笔记本合盖时-关闭屏幕</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power battery-press-power-button <span class="hljs-string">&#x27;showSessionUI&#x27;</span> <span class="hljs-comment">#使用电池-按电源按钮时-不做任何操作</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power battery-lock-delay 0  <span class="hljs-comment">#使用电池-自动锁屏 从不</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power battery-screen-black-delay 300  <span class="hljs-comment">#使用电池-关闭显示器 5分钟</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power battery-sleep-delay 0  <span class="hljs-comment">#使用电池-进入待机模式 从不</span><br><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power line-power-lid-closed-action <span class="hljs-string">&#x27;turnOffScreen&#x27;</span> <span class="hljs-comment">#连接电源-笔记本合盖时-关闭屏幕</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power line-power-press-power-button <span class="hljs-string">&#x27;showSessionUI&#x27;</span> <span class="hljs-comment">#连接电源-按电源按钮时-不做任何操作</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power line-power-lock-delay 0  <span class="hljs-comment">#连接电源-自动锁屏 从不</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power line-power-screen-black-delay 900  <span class="hljs-comment">#连接电源-关闭显示器 15分钟</span><br>gsettings <span class="hljs-built_in">set</span> com.deepin.dde.power line-power-sleep-delay 0  <span class="hljs-comment">#连接电源-进入待机模式 从不</span><br><br><span class="hljs-comment">#grub 主题美化</span><br>sudo busctl call com.deepin.daemon.Grub2 /com/deepin/daemon/Grub2/Theme com.deepin.daemon.Grub2.Theme SetBackgroundSourceFile s <span class="hljs-string">&#x27;/usr/share/wallpapers/deepin/mike-yukhtenko-a2kD4b0KK4s-unsplash.jpg&#x27;</span><br>sudo sed -i <span class="hljs-string">&#x27;s/deepin-fallback/deepin/g&#x27;</span> /etc/default/grub<br>sudo /usr/lib/deepin-api/adjust-grub-theme -width 1920 -height 1080<br>sudo update-grub2 <br><br><span class="hljs-comment">#添加Chrome源到source.list.d</span><br>wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -<br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main&quot; &gt; /etc/apt/sources.list.d/google-chrome.list&#x27;</span><br><br><span class="hljs-comment">#添加VSCode源到source.list.d</span><br>wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -<br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main&quot; &gt; /etc/apt/sources.list.d/vscode.list&#x27;</span><br><br><span class="hljs-comment">#添加Docker源到source.list.d</span><br>wget -q -O - https://mirrors.cloud.tencent.com/docker-ce/linux/debian/gpg | sudo apt-key add -<br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb [arch=amd64] https://mirrors.cloud.tencent.com/docker-ce/linux/debian buster stable&quot; &gt; /etc/apt/sources.list.d/docker.list&#x27;</span><br><br><span class="hljs-comment">#添加Beyond Compare源到source.list.d</span><br>wget -q -O - https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware | sudo apt-key add -<br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb https://www.scootersoftware.com/ bcompare4 non-free&quot; &gt; /etc/apt/sources.list.d/scootersoftware.list&#x27;</span><br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;Package: bcompare\nPin: origin www.scootersoftware.com\nPin-Priority: 600&quot; &gt; /etc/apt/preferences.d/scootersoftware&#x27;</span><br><br><span class="hljs-comment">#添加nodejs源到source.list.d</span><br>wget -q -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -<br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb https://deb.nodesource.com/node_16.x buster main&quot; &gt; /etc/apt/sources.list.d/nodesource.list&#x27;</span><br><br><span class="hljs-comment">#添加内测源到source.list.d</span><br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb [trusted=yes] https://proposed-packages.deepin.com/dde-apricot unstable main contrib non-free&quot; &gt; /etc/apt/sources.list.d/deepin-unstable.list&#x27;</span><br><br><span class="hljs-comment">#添加better-dde源到source.list.d</span><br>wget -q -O - https://better-dde.github.io/ppa/better-dde.gpg | sudo apt-key add -<br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb https://better-dde.github.io/ppa/ ./&quot; &gt; /etc/apt/sources.list.d/better-dde.list&#x27;</span><br><br><span class="hljs-comment">#卸载系统自带Flash</span><br>sudo apt purge -y libflashplugin-pepper<br><span class="hljs-built_in">rm</span> -rf ~/.config/google-chrome/PepperFlash/<br><br><span class="hljs-comment">#卸载深度帮助手册和深度欢迎两个没用还占地方的东西（会同时卸载dde，貌似没啥问题）</span><br>sudo apt purge -y deepin-manual<br>sudo apt purge -y dde-manual-content<br>sudo apt purge -y dde-introduction<br><br><span class="hljs-comment">#卸载自己不需要的软件</span><br>sudo apt purge -y deepin-feedback<br>sudo apt purge -y deepin-app-store<br>sudo apt purge -y deepin-deepinid-client<br>sudo apt purge -y deepin-calculator<br>sudo apt purge -y deepin-draw<br>sudo apt purge -y deepin-voice-note<br>sudo apt purge -y deepin-album<br>sudo apt purge -y deepin-camera<br>sudo apt purge -y deepin-mail<br>sudo apt purge -y deepin-screensaver*<br>sudo apt purge -y deepin-clone<br>sudo apt purge -y deepin-recovery-plugin<br>sudo apt purge -y deepin-ab-recovery<br>sudo apt purge -y deepin-boot-maker<br>sudo apt purge -y gnome-theme*<br>sudo apt purge -y libreoffice*<br>sudo apt purge -y simple-scan<br>sudo apt purge -y printer-driver-deepin-cloud-print<br>sudo apt purge -y org.deepin.browser<br>sudo apt purge -y org.deepin.downloader<br>sudo apt purge -y deepin-deb-installer<br>sudo apt purge -y uos-release-note<br>sudo apt purge -y deepin-forum<br>sudo apt purge -y fcitx*<br>sudo apt purge -y nano<br><br><span class="hljs-comment">#更新20.4后，卸载这个会导致无法右键跳转到设置，酌情卸载</span><br><span class="hljs-comment">#sudo apt purge -y onboard-common</span><br><br><span class="hljs-comment">#这个是用来开关机画面的，我个人喜欢看开机输出文字信息，所以卸载</span><br>sudo apt purge -y plymouth*<br><br><span class="hljs-comment">#这几个是系统自带小游戏（五子棋和连连看）</span><br>sudo apt purge -y com.deepin*<br><br><span class="hljs-comment">#清理一下</span><br>sudo apt autoremove -y --purge<br><br><span class="hljs-comment">#安装软件</span><br>sudo apt update &amp;&amp; sudo apt dist-upgrade -y<br>sudo apt install -y curl<br>sudo apt install -y git<br>sudo apt install -y console-setup<br>sudo apt install -y cmake-extras<br>sudo apt install -y extra-cmake-modules<br>sudo apt install -y build-essential<br>sudo apt install -y code<br>sudo apt install -y google-chrome-stable<br>sudo apt install -y com.qq.office.deepin<br>sudo apt install -y com.qq.weixin.deepin<br>sudo apt install -y com.oray.sunlogin.client<br>sudo apt install -y cn.wps.wps-office<br>sudo apt install -y docker-ce<br>sudo apt install -y fcitx5-chinese-addons<br>sudo apt install -y fcitx5-material-color<br>sudo apt install -y fcitx5-pinyin-zhwiki<br>sudo apt install -y fcitx5-flypy<br>sudo apt install -y bcompare<br>sudo apt install -y nodejs<br>sudo apt install -y remmina<br><br><span class="hljs-comment">#安装nvidia闭源驱动</span><br>sudo apt install -y nvidia-detect<br>nvidia-detect | awk <span class="hljs-string">&#x27;match($0, /nvidia-.*/, a) &#123;print a[0]&#125;&#x27;</span> | xargs sudo apt -y install<br><br><span class="hljs-comment">#安装任务栏显卡驱动切换插件</span><br>sudo apt install -y dde-dock-graphics-plugin<br><br><span class="hljs-comment">#隐藏启动器中 fcitx5配置、键盘布局查看工具</span><br>sudo sed -i <span class="hljs-string">&#x27;$a\NoDisplay=true&#x27;</span> /usr/share/applications/fcitx5-configtool.desktop <br>sudo sed -i <span class="hljs-string">&#x27;$a\NoDisplay=true&#x27;</span> /usr/share/applications/kbd-layout-viewer5.desktop<br><br><span class="hljs-comment">#修复命令行安装TIM、微信、向日葵、WPS，启动器中没有图标</span><br><span class="hljs-built_in">mkdir</span> -p ~/.local/share/applications/<br><br><span class="hljs-built_in">cp</span> -r /opt/apps/com.qq.office.deepin/entries/icons/* ~/.local/share/icons/<br><span class="hljs-built_in">cp</span> -r /opt/apps/com.qq.office.deepin/entries/applications/* ~/.local/share/applications/<br><br><span class="hljs-built_in">cp</span> -r /opt/apps/com.qq.weixin.deepin/entries/icons/* ~/.local/share/icons/<br><span class="hljs-built_in">cp</span> -r /opt/apps/com.qq.weixin.deepin/entries/applications/* ~/.local/share/applications/<br><br><span class="hljs-built_in">cp</span> -r /opt/apps/com.oray.sunlogin.client/entries/icons/* ~/.local/share/icons/<br><span class="hljs-built_in">cp</span> -r /opt/apps/com.oray.sunlogin.client/entries/applications/* ~/.local/share/applications/<br><br><span class="hljs-built_in">cp</span> -r /opt/apps/cn.wps.wps-office/entries/icons/* ~/.local/share/icons/<br><span class="hljs-built_in">cp</span> -r /opt/apps/cn.wps.wps-office/entries/applications/* ~/.local/share/applications/<br><br><span class="hljs-comment">#修复安装VSCode后，Win + E 打开的是VSCode</span><br>xdg-mime default dde-file-manager.desktop inode/directory<br><br><span class="hljs-comment">#删除Chrome推荐设置</span><br>sudo <span class="hljs-built_in">rm</span> /etc/opt/chrome/policies/recommended/*.json<br><br><span class="hljs-comment">#fcitx5开机自启动</span><br><span class="hljs-built_in">mkdir</span> -p ~/.config/autostart<br>sudo <span class="hljs-built_in">cp</span> /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop<br><br><span class="hljs-comment">#fcitx5图标美化</span><br>sudo <span class="hljs-built_in">mv</span> /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak<br>sudo <span class="hljs-built_in">ln</span> -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg<br><br><span class="hljs-comment">#更新TIM到最新版本</span><br>sh -c  <span class="hljs-string">&#x27;/opt/apps/com.qq.office.deepin/files/run.sh -c&#x27;</span><br><span class="hljs-built_in">export</span> WINEPREFIX=<span class="hljs-variable">$HOME</span>/.deepinwine/Deepin-TIM<br><span class="hljs-built_in">rm</span> TIM3.3.9.22051.exe<br>wget -t 3 -T 15 https://dldir1.qq.com/qqfile/qq/TIM3.3.9/TIM3.3.9.22051.exe<br>deepin-wine6-stable TIM3.3.9.22051.exe<br><br><span class="hljs-comment">#更新微信到最新版本</span><br>sh -c  <span class="hljs-string">&#x27;/opt/apps/com.qq.weixin.deepin/files/run.sh -c&#x27;</span><br><span class="hljs-built_in">export</span> WINEPREFIX=<span class="hljs-variable">$HOME</span>/.deepinwine/Deepin-WeChat<br><span class="hljs-built_in">rm</span> WeChatSetup.exe<br>wget -t 3 -T 15 https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe<br>deepin-wine6-stable WeChatSetup.exe<br><br><span class="hljs-comment">#大幅降低微信内存占用（牺牲小程序和公众号，慎用）</span><br><span class="hljs-built_in">rm</span> -rf ~/.deepinwine/Deepin-WeChat/drive_c/users/$(<span class="hljs-built_in">whoami</span>)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb/<br><span class="hljs-built_in">touch</span> ~/.deepinwine/Deepin-WeChat/drive_c/users/$(<span class="hljs-built_in">whoami</span>)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb<br><span class="hljs-built_in">chmod</span> 000 ~/.deepinwine/Deepin-WeChat/drive_c/users/$(<span class="hljs-built_in">whoami</span>)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb <br><br><span class="hljs-comment">#清理一下</span><br>sudo apt autoremove -y --purge<br></code></pre></td></tr></table></figure>
 
-              
-            </div>
+                
+              </div>
+            
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -367,7 +371,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/deepin/">#deepin</a>
+        <a href="/tags/deepin/" class="print-no-link">#deepin</a>
       
     </div>
   
@@ -396,21 +400,23 @@
         </div>
       
       
-      <div class="license-meta-item">
-        <div>许可协议</div>
-        <div>
-          
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
             
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
             
-              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-              <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                <i class="iconfont icon-by"></i>
-              </span>
-              </a>
-            
-          
+          </div>
         </div>
-      </div>
+      
     </div>
     <div class="license-icon iconfont"></div>
   </div>
@@ -447,7 +453,10 @@
       
   <aside class="sidebar" style="margin-left: -1rem">
     <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -481,6 +490,7 @@
 
 
   
+
 
 
 
@@ -583,8 +593,6 @@
 
 
 
-
-
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -600,94 +608,41 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init({
+    window.tocbot.init(Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
       linkClass       : 'tocbot-link',
       activeLinkClass : 'tocbot-active-link',
       listClass       : 'tocbot-list',
       isCollapsedClass: 'tocbot-is-collapsed',
       collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
       scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
   });
 </script>
 
 
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
   
@@ -709,6 +664,21 @@
       window.anchors.options.class = 'anchorjs-link-left';
     }
     window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
   });
 </script>
 
